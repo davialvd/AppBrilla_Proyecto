@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div claas="form-box register">
+            <h2>Register</h2>
+            <form action="#" id="register-form">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
+                    <label for="user">Email</label>
+                    <input type="email" name="user" id="user" required>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required id="password" name="password" id="password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" required id="password" name="password" id="password">
+                    <label for="password">Confirm-password</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                <a href="/" class="login-link"  >Login</a>
+                </div>
+                <p class="error escondido">Error al registrarse</p>
+             
+             </form>
+        </div>
+    </div>
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
