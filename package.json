@@ -4,13 +4,14 @@
   "main": "app/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --exec node app/index.js" 
+    "dev": "nodemon --exec node app/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",

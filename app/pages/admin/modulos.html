@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulos del Sistema</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="wrapper" style="height:auto; padding: 20px;">
+    <div class="form-box">
+      <h2>Módulos Disponibles</h2>
+
+      <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+
+        <button class="btn" onclick="irAModulo('/RegenerarDocumentos')">
+          Regenerar Documentos
+        </button>
+
+        <button class="btn" onclick="irAModulo('/RegenerarVentas')">
+          Regenerar Ventas
+        </button>
+
+        <!-- Puedes seguir agregando más módulos con este mismo estilo -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function irAModulo(ruta) {
+      window.location.href = ruta;
+    }
+  </script>
+</body>
+</html>

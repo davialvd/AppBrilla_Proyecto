@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regenerar Documentos</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="wrapper" style="height:auto; padding: 20px;">
+    <div class="form-box">
+      <h2>Regenerar Documentos</h2>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="regenerarVoucher()">Regenerar Voucher</button>
+      </div>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="regenerarTyC()">Regenerar TyC</button>
+      </div>
+      <div id="spinner" class="spinner escondido"></div>
+      <div id="resultado" style="margin-top: 20px; text-align: center;"></div>
+    </div>
+  </div>
+
+  <script>
+    async function regenerarVoucher() {
+      mostrarSpinner(true);
+      const resultado = document.getElementById("resultado");
+      resultado.innerText = "Regenerando Voucher...";
+      try {
+        const response = await fetch("/api/regenerar?voucher=true");
+        const data = await response.json();
+        resultado.innerText = "✔ Regeneración de Voucher exitosa: " + data.mensaje;
+      } catch (err) {
+        resultado.innerText = "✖ Error al regenerar Voucher: " + err.message;
+      } finally {
+        mostrarSpinner(false);
+      }
+    }
+  
+    async function regenerarTyC() {
+      mostrarSpinner(true);
+      const resultado = document.getElementById("resultado");
+      resultado.innerText = "Regenerando TyC...";
+      try {
+        const response = await fetch("/api/regenerar?tyc=true");
+        const data = await response.json();
+        resultado.innerText = "✔ Regeneración de TyC exitosa: " + data.mensaje;
+      } catch (err) {
+        resultado.innerText = "✖ Error al regenerar TyC: " + err.message;
+      } finally {
+        mostrarSpinner(false);
+      }
+    }
+  
+    function mostrarSpinner(visible) {
+      const spinner = document.getElementById("spinner");
+      spinner.classList.toggle("escondido", !visible);
+    }
+  </script>
+  
+</body>
+</html>

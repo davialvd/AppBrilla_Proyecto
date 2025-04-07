@@ -1,27 +1,16 @@
-const wrapper = document.querySelector('.wrapper');
-const loginLink=document.querySelector('.login-link');
+document.getElementById('login-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Evita que recargue la página
 
-const btn = document.querySelector('.btnLogin-popup');
+  const email = document.getElementById('user').value;
+  const password = document.getElementById('password').value;
 
-btn.addEventListener('click',() =>{
-    wrapper.classList.add('active-popup');
+  // Simulación de validación simple
+  if (email && password) {
+      // Aquí normalmente iría la verificación con la base de datos
+      window.location.href = "/modulos"; // Redirección a la vista de módulos
+  } else {
+      const errorElement = document.querySelector('.error');
+      errorElement.textContent = "Por favor ingrese sus credenciales.";
+      errorElement.classList.remove("escondido");
+  }
 });
-document.getElementById("register-form").addEventListener("submit",async (e)=>{
-    e.preventDefault();
-    const user = e.target.children.user.value;
-    const password = e.target.children.password.value;
-    const res = await fetch("http://localhost:4000/api/login",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body: JSON.stringify({
-        user,password
-      })
-    });
-    if(!res.ok) return mensajeError.classList.toggle("escondido",false);
-    const resJson = await res.json();
-    if(resJson.redirect){
-      window.location.href = resJson.redirect;
-    }
-  })
